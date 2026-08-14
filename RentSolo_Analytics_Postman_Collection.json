@@ -1,0 +1,297 @@
+{
+  "info": {
+    "_postman_id": "rentsolo-analytics-api-v1",
+    "name": "RentSolo - Analytics Page APIs",
+    "description": "Collection containing all backend endpoints powering the Agent Analytics Dashboard in RentSolo.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{your_token_here}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:9090",
+      "type": "string",
+      "description": "Base URL of backend server"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Tour Analytics Overview",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"dateFromFilter\": \"\",\n  \"dateToFilter\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/agent/tourAnalytics",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "agent",
+            "tourAnalytics"
+          ]
+        },
+        "description": "Fetches overall tour analytics stats including widget clicks, booked tours, completed tours, and key insights."
+      },
+      "response": []
+    },
+    {
+      "name": "2. Tour Analytics Details - Widget Clicks",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"key\": \"widgetClick\",\n  \"dateFromFilter\": \"\",\n  \"dateToFilter\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/agent/tourAnalyticsDetails",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "agent",
+            "tourAnalyticsDetails"
+          ]
+        },
+        "description": "Fetches detailed breakdown for Widget Clicks tab."
+      },
+      "response": []
+    },
+    {
+      "name": "3. Tour Analytics Details - New Renters",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"key\": \"newRenter\",\n  \"dateFromFilter\": \"\",\n  \"dateToFilter\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/agent/tourAnalyticsDetails",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "agent",
+            "tourAnalyticsDetails"
+          ]
+        },
+        "description": "Fetches detailed breakdown for New Renters tab."
+      },
+      "response": []
+    },
+    {
+      "name": "4. Tour Analytics Details - Booked Tours",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"key\": \"bookedTour\",\n  \"dateFromFilter\": \"\",\n  \"dateToFilter\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/agent/tourAnalyticsDetails",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "agent",
+            "tourAnalyticsDetails"
+          ]
+        },
+        "description": "Fetches detailed breakdown for Booked Tours tab."
+      },
+      "response": []
+    },
+    {
+      "name": "5. Tour Analytics Details - Completion Rate",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"key\": \"completionRate\",\n  \"dateFromFilter\": \"\",\n  \"dateToFilter\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/agent/tourAnalyticsDetails",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "agent",
+            "tourAnalyticsDetails"
+          ]
+        },
+        "description": "Fetches detailed breakdown for Completion Rate tab."
+      },
+      "response": []
+    },
+    {
+      "name": "6. Analytics Renters List",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"dateFromFilter\": \"\",\n  \"dateToFilter\": \"\",\n  \"page\": \"1\",\n  \"limit\": \"10\",\n  \"search\": \"\",\n  \"sortField\": \"createdAt\",\n  \"sortOrder\": \"desc\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/agent/getAnalyticsRentersList",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "agent",
+            "getAnalyticsRentersList"
+          ]
+        },
+        "description": "Fetches filtered and paginated renters list for analytics overview."
+      },
+      "response": []
+    },
+    {
+      "name": "7. Export Tour Analytics (Excel)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"key\": \"overview\",\n  \"dateFromFilter\": \"\",\n  \"dateToFilter\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/agent/exportTourAnalytics",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "agent",
+            "exportTourAnalytics"
+          ]
+        },
+        "description": "Generates and exports an Excel report for tour analytics."
+      },
+      "response": []
+    },
+    {
+      "name": "8. Export Weekly Tour Analytics (Excel)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"dateFromFilter\": \"\",\n  \"dateToFilter\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/agent/exportWeeklyTourAnalytics",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "agent",
+            "exportWeeklyTourAnalytics"
+          ]
+        },
+        "description": "Generates and exports weekly tour analytics Excel sheet."
+      },
+      "response": []
+    },
+    {
+      "name": "9. Record Widget Event Analytics",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"actionCode\": \"USER_SCHEDULE_TOUR_SCHEDULED_CONFIRMATION_POPUP_CLICK\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/analytics",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "analytics"
+          ]
+        },
+        "description": "Public endpoint to record widget analytics event action codes."
+      },
+      "response": []
+    }
+  ]
+}
