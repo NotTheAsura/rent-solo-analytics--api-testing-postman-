@@ -1,0 +1,82 @@
+{
+  "info": {
+    "_postman_id": "aCEa7F603ccEf7E0F3F14389",
+    "name": "RentSolo - Analytics Page APIs",
+    "description": "Postman API testing collection for the RentSolo Analytics Page APIs.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Request 1 - C37dafe103Ac58d02B28DA53",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "Request definition was not included in the uploaded test-run export."
+      }
+    },
+    {
+      "name": "Request 2 - b32C0FD0D17d6F71b9D3E1bC",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "Request definition was not included in the uploaded test-run export."
+      }
+    },
+    {
+      "name": "Request 3 - 85FAb41e1525ab0788F5dfdE",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "Request definition was not included in the uploaded test-run export."
+      }
+    },
+    {
+      "name": "Request 4 - 2dc16cF16E8ADb6dfCC43aee",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "Request definition was not included in the uploaded test-run export."
+      }
+    },
+    {
+      "name": "Request 5 - 8BA44840Da5eecCDC4BBc1Fe",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "Request definition was not included in the uploaded test-run export."
+      }
+    },
+    {
+      "name": "Request 6 - 2d9E0Dc0a6eAF9d5081CfC7E",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "Request definition was not included in the uploaded test-run export."
+      }
+    },
+    {
+      "name": "Request 7 - aaCfC3B9aaEC53afA8EEcc5B",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "Request definition was not included in the uploaded test-run export."
+      }
+    },
+    {
+      "name": "Request 8 - 39DEdF81b0eB5F5Ae26CF3E6",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "Request definition was not included in the uploaded test-run export."
+      }
+    },
+    {
+      "name": "Request 9 - ceD37Fa542e8eefcDBc11852",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "Request definition was not included in the uploaded test-run export."
+      }
+    }
+  ]
+}

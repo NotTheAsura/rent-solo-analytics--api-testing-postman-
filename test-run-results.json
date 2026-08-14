@@ -1,0 +1,48 @@
+{
+  "id": "6a60afa5a6969534648213f4",
+  "name": "RentSolo - Analytics Page APIs (Fixed)",
+  "timestamp": "2026-07-22T11:55:53.130Z",
+  "collection_id": "aCEa7F603ccEf7E0F3F14389",
+  "folder_id": 0,
+  "environment_id": "0",
+  "totalPass": 35,
+  "delay": 0,
+  "persist": true,
+  "status": "finished",
+  "startedAt": "2026-07-22T11:55:17.526Z",
+  "totalFail": 1,
+  "results": [],
+  "count": 1,
+  "totalTime": 0,
+  "collection": {
+    "requests": [
+      {
+        "id": "C37dafe103Ac58d02B28DA53"
+      },
+      {
+        "id": "b32C0FD0D17d6F71b9D3E1bC"
+      },
+      {
+        "id": "85FAb41e1525ab0788F5dfdE"
+      },
+      {
+        "id": "2dc16cF16E8ADb6dfCC43aee"
+      },
+      {
+        "id": "8BA44840Da5eecCDC4BBc1Fe"
+      },
+      {
+        "id": "2d9E0Dc0a6eAF9d5081CfC7E"
+      },
+      {
+        "id": "aaCfC3B9aaEC53afA8EEcc5B"
+      },
+      {
+        "id": "39DEdF81b0eB5F5Ae26CF3E6"
+      },
+      {
+        "id": "ceD37Fa542e8eefcDBc11852"
+      }
+    ]
+  }
+}
