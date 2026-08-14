@@ -1,105 +1,57 @@
-# RentSolo Analytics API Testing
+# RentSolo Agent Analytics - API Test Automation
 
-A QA/API testing project for the **RentSolo Analytics Page APIs**, created using Postman.
+## Overview
+This repository contains an automated API testing suite built with Postman and Newman. It validates the backend REST APIs that power the Agent Analytics Dashboard for the RentSolo platform.
 
-## Project Overview
+## Technical Scope
+The test suite validates 9 `POST` endpoints, covering:
+- Data aggregation (overview, widget clicks, booked tours, completion rate)
+- Search & pagination (renters list with page/limit/sort/search)
+- File exports (Excel reports, weekly exports)
+- Event tracking (public endpoint for widget event action codes)
 
-This repository demonstrates API testing work performed against the RentSolo Analytics APIs, including collection execution and analysis of automated test results.
+## Tools Used
+- Postman — build requests and maintain environments
+- Newman — CLI execution for local and CI runs
+- Git/GitHub — repository and CI integration
 
-### Tools & Technologies
+## How to Run Locally
+1. Clone this repository.
+2. Install Newman:
+   npm install -g newman
+3. Run the collection (file is at the repo root):
+   newman run RentSolo_Analytics_Postman_Collection.json \
+     --env-var "baseUrl=http://localhost:9090" \
+     --env-var "token={{your_token_here}}"
 
-- **Postman** — API request creation and functional testing
-- **Newman** — CLI/automated collection execution
-- **JavaScript** — Postman test scripts
-- **Git/GitHub** — Version control and project documentation
+Notes:
+- The collection in this repo contains a placeholder token value: `{{your_token_here}}` in the Postman `auth` section. Do NOT commit real tokens.
+- Prefer using a Postman environment file or runtime env-vars to inject secrets instead of editing the collection.
 
-## Test Execution
+## Example GitHub Actions CI step
+Store your token in GitHub Actions secrets (Repository -> Settings -> Secrets) as `RENTSOLO_API_TOKEN` and the base URL as `BASE_URL`. Add a workflow step like:
 
-The uploaded Postman test-run artifact reports:
-
-| Metric | Result |
-|---|---:|
-| Total Passed | 35 |
-| Total Failed | 1 |
-| Total Requests | 9 |
-| Execution Status | Finished |
-
-> The repository includes the original test-run result JSON in `reports/test-run-results.json`.
-
-## Repository Structure
-
-```text
-rentsolo-api-testing-postman/
-├── README.md
-├── .gitignore
-├── postman/
-│   └── RentSolo-Analytics-APIs.postman_collection.json
-├── reports/
-│   └── test-run-results.json
-└── screenshots/
-    └── README.md
+```yaml
+- name: Run RentSolo API tests with Newman
+  run: |
+    npm install -g newman
+    newman run RentSolo_Analytics_Postman_Collection.json \
+      --env-var "baseUrl=${{ secrets.BASE_URL }}" \
+      --env-var "token=${{ secrets.RENTSOLO_API_TOKEN }}" \
+      --reporters cli,junit \
+      --reporter-junit-export reports/junit.xml
 ```
 
-## Testing Areas
+## Security & Cleanup (Important)
+If a real token was previously committed and exposed in this repository:
+1. Revoke or rotate the token immediately — assume it is compromised.
+2. Remove the secret from the repository history (history rewrite required):
+   - Recommended: use git filter-repo (https://github.com/newren/git-filter-repo) or BFG Repo-Cleaner to remove the token from all commits, then force-push.
+   - After history rewrite, tell all collaborators to reclone the repository — old clones will contain the secret.
+3. Search the repo and branches for other potential secrets (`Bearer`, `token`, long base64 strings) and remove as needed.
+4. Add prevention: enable GitHub secret scanning, add a pre-commit secret checker (e.g., detect-secrets or pre-commit hooks), and avoid committing credentials in any files.
 
-- API functional testing
-- Positive and negative test scenarios
-- HTTP response validation
-- Response data validation
-- API regression testing
-- Automated collection execution
-- Test-result analysis
-
-## How to Use
-
-### 1. Import into Postman
-
-Open Postman and import:
-
-```text
-postman/RentSolo-Analytics-APIs.postman_collection.json
-```
-
-### 2. Configure the environment
-
-Create/configure the required environment variables and credentials for the target RentSolo environment.
-
-**Do not commit passwords, access tokens, API keys, cookies, or other secrets.**
-
-### 3. Execute the collection
-
-Run the collection from the Postman Collection Runner.
-
-For Newman:
-
-```bash
-npm install -g newman
-newman run postman/RentSolo-Analytics-APIs.postman_collection.json
-```
-
-## QA Skills Demonstrated
-
-This project demonstrates practical experience with:
-
-- API testing
-- Postman collections
-- Test assertions
-- API response validation
-- Regression testing
-- Automated test execution
-- Test-result reporting
-- Git/GitHub project organization
-
-## Important Note
-
-The uploaded source file is a **Postman test-run export** rather than the original Postman collection. Therefore, the repository preserves the complete test-run artifact under `reports/` and provides a collection placeholder under `postman/`.
-
-For a fully executable GitHub repository, export the original Postman collection from Postman using:
-
-**Collection → ... → Export → Collection v2.1**
-
-Then replace the placeholder collection file in `postman/`.
+If you want, I can prepare the exact git filter-repo or BFG commands (you will paste the actual secret when running them) and/or scan the repository for other potential exposures.
 
 ## Author
-
 QA / Software Testing Portfolio Project
